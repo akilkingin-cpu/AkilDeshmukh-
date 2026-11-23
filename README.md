@@ -1,40 +1,39 @@
 # Deshmukh Softwares
 
-A responsive starter storefront for a software marketplace.
+A responsive software-discovery marketplace front-end.
 
-## Current state
+## Current published front-end
 
-- Static HTML/CSS/JavaScript starter in `index.html`.
-- Responsive desktop/mobile layout.
-- English/Hindi text toggle.
-- Search and category/platform/price filters using clearly labelled sample listings.
-- Free and paid listing presentation.
+- Premium, responsive marketplace layout for desktop and mobile.
+- English/Hindi language toggle.
+- Search plus category, platform and price filters.
+- Clearly labelled sample software cards.
 - Developer submission and sign-in preview dialogs.
+- PWA manifest, install prompt support and service worker for an app-like website install.
 
-## Important limitations
+## Important: prototype vs production
 
-This repository currently contains a **front-end prototype only**. It does not yet include:
-- Real user accounts, authentication, or owner/admin permissions.
-- Database, developer profiles, upload storage, malware scanning, or moderation workflow.
-- Real downloadable software packages.
-- Cashfree checkout, Easy Split vendor onboarding, webhook verification, refunds, or payouts.
-- Production analytics or email notifications.
+This GitHub Pages project is a **front-end preview**, not yet a production marketplace. Sample listings are not real downloadable software. Sign-in and submission dialogs are previews only.
 
-Do not collect bank details or payment credentials in this static site. Do not treat sample listings, buttons, or preview forms as live functionality.
+Not connected yet:
+- Real user accounts, secure authentication, database, owner/admin roles.
+- Developer profiles, private file uploads, malware scanning, moderation and real download hosting.
+- Cashfree checkout, Easy Split vendor onboarding, signed webhook verification, refunds, commission ledger or payouts.
+- Production visitor analytics, sales dashboard or notifications.
 
-## Publish a preview with GitHub Pages
+Never place Cashfree secret keys, passwords, bank details, or private API credentials in this public repository. Never collect bank details in a static HTML form.
 
-1. Open the repository **Settings → Pages**.
-2. Under **Build and deployment**, choose **Deploy from a branch**.
-3. Choose branch **main** and folder **/(root)**, then save.
-4. Wait for GitHub Pages to finish deploying and open the URL shown on the Pages settings screen.
+## Cashfree marketplace payment design
 
-GitHub Pages serves only the static front end. A separate trusted backend (for example, Supabase plus secure server/edge functions) is required before real accounts, uploads, admin controls, and payments can go live.
+Cashfree Easy Split is the intended marketplace flow: customer checkout, commission calculation, vendor share, settlement, refund adjustments and reconciliation. It requires server-side integration, merchant approval/feature activation, vendor onboarding/KYC and secure credentials. The website must verify payment status from the backend/webhook before releasing paid downloads. See Cashfree's official [Easy Split documentation](https://www.cashfree.com/docs/api-reference/payments/latest/split/easy-split-overview).
 
-## Next development stages
+## Production work still required
 
-1. Add a database schema and secure authentication with verified owner role.
-2. Add private object storage, file type/size checks, malware scanning, and owner approval.
-3. Add order ledger and Cashfree payment verification on the server.
-4. Integrate Cashfree Easy Split only after merchant approval, feature activation, vendor KYC, and credentials are available.
-5. Test free downloads, paid checkout, refunds, failed/pending states, and settlement reconciliation before launch.
+1. Choose and configure a trusted backend/database and private object storage.
+2. Implement verified login, developer roles, owner-only admin access and audit logs.
+3. Add software upload validation, malware scanning, owner approval and signed download links.
+4. Integrate Cashfree order creation and payment verification on the server, plus verified webhooks.
+5. Enable Easy Split only after Cashfree approves the merchant and vendor setup; implement commission, refunds, settlement and reconciliation.
+6. Test successful, failed, pending, refunded and disputed payments before accepting real orders.
+
+GitHub Pages serves the static front-end only; it cannot safely store Cashfree secrets or run the required private payment backend.
